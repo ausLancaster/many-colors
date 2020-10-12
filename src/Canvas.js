@@ -8,10 +8,12 @@ const height = 128;
 
 const Canvas = props => {
 
+
+
     const canvasRef = useRef(null)
 
     useEffect(() => {
-        SwirlPattern.create(width, height);
+        SwirlPattern.create(props.seed, width, height);
 
         const canvas = canvasRef.current
         const context = canvas.getContext('2d')
@@ -29,7 +31,7 @@ const Canvas = props => {
                 }
             }
         }
-    }, [])
+    }, [props.seed])
 
     return <canvas ref={canvasRef} className="Canvas" {...props}/>
 }

@@ -3,8 +3,8 @@ import { Noise } from 'noisejs';
 // On construction create an 2d swirl pattern represented by a 2D array holding values either 0, 1, or 2.
 // Values at particular points can accessed with get().
 let SwirlPattern = {
-    create: function(width, height) {
-        let ns = new Noise(Math.random());
+    create: function(seed, width, height) {
+        let ns = new Noise(seed);
         this.width = width;
         this.height = height;
         this.map = new Array(this.width);
