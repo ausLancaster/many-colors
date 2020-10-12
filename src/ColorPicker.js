@@ -2,14 +2,17 @@
 const step = 8;
 // max color
 const max_color = 255;
+const opacity = 255;
 
 // Call assignNext() repeatedly and ColorPicker will generate and sequence of colors, with every color  represented once.
 let ColorPicker = {
     r : -step,
     g : 0,
     b : 0,
-    assignNext : function(data) {
+    total : 0,
+    next : function(data) {
 
+        this.total++;
         this.r += step;
 
         if (this.r > max_color) {
@@ -24,11 +27,7 @@ let ColorPicker = {
             }
         }
 
-        data[0] = this.r;
-        data[1] = this.b;
-        data[2] = this.g;
-
-        //console.log(this.r + ":" + this.g + ":" + this.b);
+        return "rgba(" + this.r + "," + this.g + "," + this.b + "," + opacity + ")";
     }
 };
 

@@ -1,32 +1,35 @@
 import React, { useRef, useEffect } from 'react'
 import ColorPicker from './ColorPicker'
 import './App.css';
+import SwirlPattern from "./SwirlPattern";
+
+const width = 256;
+const height = 128;
 
 const Canvas = props => {
 
     const canvasRef = useRef(null)
-    const width = 256;
-    const height = 128;
 
     useEffect(() => {
+        SwirlPattern.create(width, height);
+
         const canvas = canvasRef.current
         const context = canvas.getContext('2d')
         canvas.width = width;
         canvas.height = height;
 
-        let id = context.createImageData(width, height);
-        let d  = id.data;
-        let i, j;
-        d[3] = 255;
-        for (j = 0; j < height; j++) {
+        let layer, i, j;
+        for (layer = 0; layer < 3; layer++) {
             for (i = 0; i < width; i++) {
-                ColorPicker.assignNext(d);
-                context.putImageData(id, i, j);
+                for (j = 0; j < height; j++) {
+                    if (SwirlPattern.get(i, j) === layer) {
+                        context.fillStyle = ColorPicker.next();
+                        context.fillRect(i, j, 1, 1);
+                    }
+                }
             }
         }
-
-        //context.fillStyle = '#000000'
-        //context.fillRect(0, 0, context.canvas.width, context.canvas.height)
+        console.log(ColorPicker.total);
     }, [])
 
     return <canvas ref={canvasRef} className="Canvas" {...props}/>

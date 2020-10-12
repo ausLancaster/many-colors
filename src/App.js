@@ -8,15 +8,8 @@ function App() {
       <header className="App-header">
         <Canvas/>
         <p>
-          Welcome to my beautiful technicolor picture. By&nbsp;
-          <a
-              className="App-link"
-              href="https://github.com/ausLancaster"
-              target="_blank"
-              rel="noopener noreferrer"
-          >
-           Austin Lancaster
-          </a>.
+          Welcome to this startling, psychedelic, technicolor picture.<br/>
+          (Thought to be created by aliens?)
         </p>
         <a
           className="App-link"
