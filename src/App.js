@@ -8,15 +8,23 @@ function App() {
       <header className="App-header">
         <Canvas/>
         <p>
-          Welcome to my beautiful technicolor picture.
+          Welcome to my beautiful technicolor picture. By&nbsp;
+          <a
+              className="App-link"
+              href="https://github.com/ausLancaster"
+              target="_blank"
+              rel="noopener noreferrer"
+          >
+           Austin Lancaster
+          </a>.
         </p>
         <a
           className="App-link"
-          href="https://reactjs.org"
+          href="https://github.com/ausLancaster/many-colors"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Github
         </a>
       </header>
     </div>
