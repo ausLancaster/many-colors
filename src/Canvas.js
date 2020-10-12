@@ -29,7 +29,6 @@ const Canvas = props => {
                 }
             }
         }
-        console.log(ColorPicker.total);
     }, [])
 
     return <canvas ref={canvasRef} className="Canvas" {...props}/>

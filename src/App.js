@@ -1,11 +1,14 @@
 import React from 'react';
 import './App.css';
 import Canvas from './Canvas'
+import RandomTitle from './RandomTitle'
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <RandomTitle/>
+        <br/>
         <Canvas/>
         <p>
           Welcome to this startling, psychedelic, technicolor picture.<br/>
