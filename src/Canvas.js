@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react'
+import ColorPicker from './ColorPicker'
 import './App.css';
 
 const Canvas = props => {
@@ -12,17 +13,14 @@ const Canvas = props => {
         const context = canvas.getContext('2d')
         canvas.width = width;
         canvas.height = height;
-        console.log(canvas.width);
 
         let id = context.createImageData(width, height);
         let d  = id.data;
         let i, j;
-        for (i = 0; i < width; i++) {
-            for (j = 0; j < height; j++) {
-                d[0]   = i;
-                d[1]   = j*2;
-                d[2]   = 245;
-                d[3]   = 255;
+        d[3] = 255;
+        for (j = 0; j < height; j++) {
+            for (i = 0; i < width; i++) {
+                ColorPicker.assignNext(d);
                 context.putImageData(id, i, j);
             }
         }
