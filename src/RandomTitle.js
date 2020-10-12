@@ -29,14 +29,7 @@ class RandomTitle extends Component {
     title = memoize(
         (seed) => this.generateTitle(seed)
     );
-
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.seed !== this.props.seed) {
-            this.title = this.generateTitle(nextProps.seed);
-        }
-    }
-
-
+    
     render() {
         return (
             <div>
